@@ -59,22 +59,14 @@
                         PickedColorChanged="ColorPicker_PickedColorChanged"
                         PointerCircleBorderUnits="0.4"
                         PointerCircleDiameterUnits="0.8">
-                            <!--BindingContextChanged="ColorPicker_BindingContextChanged"> -->
                             <controls:ColorPicker.ColorList>
                                 <x:Array Type="{x:Type x:String}">
-                                    <!--  Red  -->
-                                    <x:String>#ff0000</x:String>
-                                    <!--  Yellow  -->
+                                    <x:String>#ff0000</x:String>                                   
                                     <x:String>#ffff00</x:String>
-                                    <!--  Green (Lime)  -->
-                                    <x:String>#00ff00</x:String>
-                                    <!--  Aqua  -->
-                                    <x:String>#00ffff</x:String>
-                                    <!--  Blue  -->
-                                    <x:String>#0000ff</x:String>
-                                    <!--  Fuchsia  -->
+                                    <x:String>#00ff00</x:String>                                    
+                                    <x:String>#00ffff</x:String>                                    
+                                    <x:String>#0000ff</x:String>                                 
                                     <x:String>#ff00ff</x:String>
-                                    <!--  Red  -->
                                     <x:String>#ff0000</x:String>
                                 </x:Array>
                             </controls:ColorPicker.ColorList>
