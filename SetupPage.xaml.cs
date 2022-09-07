@@ -178,11 +178,6 @@ namespace FlowerApp2.Views
 
             CoordsList.Clear();
 
-
-
-            //String destinationPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments ), "C:\\Users\\Bugs Bunny 736423\\source\\Flower2XCopy\\Flower1\\Flower1\\TESTCoords.txt");
-            //string[] LoadCoordsStringArray = File.ReadAllLines(destinationPath);
-            //string[] LoadCoordsStringArray = File.ReadAllLines("..\\TEST1Coords.txt");
             string[] LoadCoordsStringArray = File.ReadAllLines("Test1CoordsTrash.txt");
             for (int i = 0; i < LoadCoordsStringArray.Length; i++)
             {
@@ -329,8 +324,6 @@ namespace FlowerApp2.Views
 
             saveCoordinates();
 
-
-
         }
 
 
@@ -359,7 +352,6 @@ namespace FlowerApp2.Views
             //listView1.HeightRequest = 750;
             //listView1.ItemsSource = null;
             //listView1.ItemsSource = CoordsList;
-            //listView1.Focus();
         }
 
 
@@ -372,12 +364,8 @@ namespace FlowerApp2.Views
                 {
                     try
                     {
-
-
-
                         if (CoordsList[i].key.Equals(((Coords)listView1.SelectedItem).key) == true)
                         {
-
                             keys.setKeyOpen(CoordsList[i].key);
                             try
                             {
@@ -388,7 +376,6 @@ namespace FlowerApp2.Views
                                 DisplayAlert("Alert", "CoordsList.Remove of listView1.SelectedItem unsuccessful", "OK");
                             }
                             saveCoordinates();
-
                         }
                     }
                     catch
@@ -399,7 +386,7 @@ namespace FlowerApp2.Views
             }
             catch
             {
-                DisplayAlert("Alert", "Delete unsuccessful", "OK");
+                DisplayAlert("Alert", "Bongo says Delete unsuccessful", "OK");
             }
         }
 
@@ -451,11 +438,8 @@ namespace FlowerApp2.Views
         {
             for (int i = 0; i < CoordsList.Count; i++)
             {
-
-
                 if (CoordsList[i].key.Equals(((Coords)listView1.SelectedItem).key) == true)
                 {
-
                     try
                     {
                         Coords newCoords = new Coords();
@@ -467,20 +451,14 @@ namespace FlowerApp2.Views
 
                         // listView1.SelectedItem = newCoords; 
                         // ((Coords)listView1.SelectedItem).isVisible = true;
-
                     }
                     catch
                     {
-                        DisplayAlert("Alert", "CoordsList.SaveAs listView1.SelectedItem unsuccessful", "OK");
+                        DisplayAlert("Alert", "Bongo says CoordsList.SaveAs listView1.SelectedItem unsuccessful", "OK");
                     }
-                    saveCoordinates();
-
+                    saveCoordinates();                    
                 }
-
-
             }
-
-
 
             /*   for (int i = 0; i < CoordsList.Count; i++)
                {
@@ -490,16 +468,12 @@ namespace FlowerApp2.Views
 
                        CoordsList[i].coordsString = currentCoords.coordsString;
                        CoordsList[i].makeUniformForLoading();
-
-
                    }
-
                }
-
            }
            catch(Exception ex)
            {
-               DisplayAlert("Error", "Resave Selected SaveAs Coordinates", "OK");
+               DisplayAlert("Error", "Bongo says Resave Selected SaveAs Coordinates", "OK");
            }
 
            saveCoordinates();
@@ -520,14 +494,10 @@ namespace FlowerApp2.Views
 
         private async void ListView1_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-
-
             for (int i = 0; i < CoordsList.Count; i++)
             {
-
                 if (CoordsList[i].key.Equals(((Coords)listView1.SelectedItem).key) == true)
                 {
-
                     currentCoords.coordsString = CoordsList[i].coordsString;
                     currentCoords.makeUniformForLoading();
                     currentCoords.makeUniformForSaving();
@@ -535,8 +505,6 @@ namespace FlowerApp2.Views
                 }
             }
         }
-
-
 
         /*if (CoordsList[i].key.Equals(((Coords)listView1.SelectedItem).key) == true)
                 {
@@ -548,32 +516,22 @@ namespace FlowerApp2.Views
 
                     for (int j = 0; j < coordsStringArray.Length; j++)
                     {
-
                         s = s + coordsStringArray[j];
-
                     }
+                    
                     coordsStringArray[i]
                     currentCoords.coordsString = s;
                     currentCoords.makeUniformForLoading();
                     currentCoords.makeUniformForSaving();
                     RefreshCurrentCoordsToGUI();
-
                 }
                 */
 
         // IEnumerator enumerator = enumerableList.GetEnumerator();
         //currentCoords.coordsString = enumerableList.ToString();
 
-
-
-
-
-
-
-
         public void RefreshCurrentCoords()
         {
-
             SKColor.TryParse(currentCoords.color1, out skColorStroke1);
             SKColor.TryParse(currentCoords.color2, out skColorStroke2);
             SKColor.TryParse(currentCoords.color3, out skColorStroke3);
@@ -596,15 +554,12 @@ namespace FlowerApp2.Views
             currentCoords.cStroke3 = (poo(Stroke3_Entry.Text, Slider_Stroke3.Maximum, 1));
 
             currentCoords.makeUniformForSaving();
-
-
         }
 
         public async void RefreshCurrentCoordsToGUI()
         {
             try
             {
-
                 currentCoords.makeUniformForLoading();
 
                 //Xamarin.Forms.Color C = new Xamarin.Forms.Color();
@@ -634,7 +589,6 @@ namespace FlowerApp2.Views
                 Stroke3_Entry.Text = poo(currentCoords.cStroke3, Slider_Stroke3.Maximum, 1);
 
                 // currentCoords.makeUniformForSaving();
-
             }
             catch (Exception ex)
             {
@@ -644,7 +598,6 @@ namespace FlowerApp2.Views
 
         private async void StartFlowerButton_Clicked(object sender, EventArgs e)
         {
-
             RefreshCurrentCoords();
 
             SKColor.TryParse(currentCoords.color1, color: out RenderPage.colorStroke1);
@@ -666,43 +619,30 @@ namespace FlowerApp2.Views
             RenderPage.scale = float.Parse(currentCoords.fullScale);
 
             await Navigation.PushAsync(RenderPage);
-            //await Shell.Current.GoToAsync($"//{nameof(RenderPage)}");
-
-
+ 
             // int i = 0;
             //  int j = i / 0;
-
         }
         //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
         private async void BackButton_Clicked(object sender, EventArgs e)
         {
-
             await Navigation.PopAsync();
-
         }
-
 
         //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-
         public void fillColor(string C)
         {
-
-
             int j = CoordsList.IndexOf((Coords)listView1.SelectedItem);
             if (j != -1)
             {
                 CoordsList[j].color1 = C;
             }
-
         }
-
 
         public void Picker_SelectedIndexChanged1(object sender, EventArgs e)
         {
-
             string str1 = picker1.SelectedItem.ToString();
 
             foreach (string keyName in nameAndColor.Keys)
@@ -720,8 +660,6 @@ namespace FlowerApp2.Views
             double db = 10d;
             picker1.CharacterSpacing = db;
 
-
-
             picker1Touchable = true;
 
             if (picker2Touchable == true)
@@ -735,13 +673,10 @@ namespace FlowerApp2.Views
 
             // int b = 1;
             // int j = i / 0;
-
-
         }
 
         public void Picker_SelectedIndexChanged2(object sender, EventArgs e)
         {
-
             string str2 = picker2.SelectedItem.ToString();
 
             foreach (string keyName in nameAndColor.Keys)
@@ -759,12 +694,7 @@ namespace FlowerApp2.Views
 
                         break;
                     }
-
-
-
-            //listView1.BindingContext = picker1;
-            //       listView1.SetBinding(ListView.BackgroundColorProperty, currentCoords.color1);
-
+                    
             //double db = 10d;
             //picker2.CharacterSpacing = db;
 
@@ -778,12 +708,10 @@ namespace FlowerApp2.Views
 
             if (picker4Touchable == true)
                 picker4Touchable = false;
-
         }
 
         public void Picker_SelectedIndexChanged3(object sender, EventArgs e)
         {
-
             string str3 = picker3.SelectedItem.ToString();
 
             foreach (string keyName in nameAndColor.Keys)
@@ -809,12 +737,10 @@ namespace FlowerApp2.Views
 
             if (picker4Touchable)
                 picker4Touchable = false;
-
         }
 
         public void Picker_SelectedIndexChanged4(object sender, EventArgs e)
         {
-
             string str4 = picker4.SelectedItem.ToString();
 
             foreach (string keyName in nameAndColor.Keys)
@@ -841,39 +767,29 @@ namespace FlowerApp2.Views
 
             if (picker3Touchable == true)
                 picker3Touchable = false;
-
-
         }
 
         private void ColorPicker_PickedColorChanged(object sender, Xamarin.Forms.Color colorPicked)
         {
-
-
             if (hasTouched == true)
             {
-
-
                 if (picker1Touchable == true)
                 {
                     picker1.BackgroundColor = colorPicked;
                     picker1.TextColor = Xamarin.Forms.Color.Transparent;
                     currentCoords.color1 = colorPicked.ToHex().ToString();
-
-
                 }
                 else if (picker2Touchable == true)
                 {
                     picker2.BackgroundColor = colorPicked;
                     picker2.TextColor = Xamarin.Forms.Color.Transparent;
                     currentCoords.color2 = colorPicked.ToHex().ToString();
-
                 }
                 else if (picker3Touchable == true)
                 {
                     picker3.BackgroundColor = colorPicked;
                     picker3.TextColor = Xamarin.Forms.Color.Transparent;
                     currentCoords.color3 = colorPicked.ToHex().ToString();
-
                 }
 
                 else if (picker4Touchable == true)
@@ -881,13 +797,10 @@ namespace FlowerApp2.Views
                     picker4.BackgroundColor = colorPicked;
                     picker4.TextColor = Xamarin.Forms.Color.Transparent;
                     currentCoords.color4 = colorPicked.ToHex().ToString();
-
                 }
 
                 hasTouched = false;
             }
-
-
         }
         //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -895,15 +808,12 @@ namespace FlowerApp2.Views
         {
             foreach (string colorName in nameAndColor.Keys)
                 picker1.Items.Add(colorName);
-
-
         }
 
         private void picker2_IsEnabled(object sender, FocusEventArgs e)
         {
             foreach (string colorName in nameAndColor.Keys)
                 picker2.Items.Add(colorName);
-
         }
 
 
@@ -911,18 +821,13 @@ namespace FlowerApp2.Views
         {
             foreach (string colorName in nameAndColor.Keys)
                 picker3.Items.Add(colorName);
-
-
         }
 
         private void picker4_IsEnabled(object sender, FocusEventArgs e)
         {
             foreach (string colorName in nameAndColor.Keys)
                 picker4.Items.Add(colorName);
-
-
         }
-
 
         //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -965,10 +870,10 @@ namespace FlowerApp2.Views
             degreesFlag = false;
         }
         */
+        
         public bool degreesFlag = false;
         private void Entry_TextChanged(object sender, TextChangedEventArgs e)
         {
-
             currentCoords.preciseDegrees = poo(Entry1.Text, Slider_Stroke1.Maximum, 1);
 
             degreesFlag = true;
@@ -976,43 +881,33 @@ namespace FlowerApp2.Views
 
         private void Entry1_TextChanged(object sender, TextChangedEventArgs e)
         {
-
             currentCoords.degrees = poo(Entry2.Text, Slider_Stroke1.Maximum, 1);
 
             degreesFlag = false;
         }
         private void Stroke1_TextChanged(object sender, TextChangedEventArgs e)
         {
-
             currentCoords.cStroke1 = Stroke1_Entry.Text;
         }
 
         private void Stroke2_TextChanged(object sender, TextChangedEventArgs e)
         {
             currentCoords.cStroke2 = Stroke2_Entry.Text;
-
         }
 
         private void Stroke3_TextChanged(object sender, TextChangedEventArgs e)
         {
             currentCoords.cStroke3 = Stroke3_Entry.Text;
-
-
         }
 
         private void Entry2_TextChanged(object sender, EventArgs e)
         {
-
-
             currentCoords.fullScale = Entry3.Text;
-
         }
 
         private void Entry4_TextChanged(object sender, TextChangedEventArgs e)
         {
-
             currentCoords.angleLimit = Entry4.Text;
-
         }
 
         private void Entry5_TextChanged(object sender, TextChangedEventArgs e)
@@ -1021,9 +916,7 @@ namespace FlowerApp2.Views
         }
         private void Entry6_TextChanged(object sender, TextChangedEventArgs e)
         {
-
             currentCoords.angle = Entry6.Text;
-
         }
 
         private void EntryName_TextChanged(object sender, TextChangedEventArgs e)
@@ -1038,21 +931,16 @@ namespace FlowerApp2.Views
 
         private void SliderStroke1_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-
             currentCoords.cStroke1 = ((int)Math.Round(e.NewValue)).ToString();
-            // Entry1.Text = currentCoords.cStroke1;
         }
 
         private void SliderStroke2_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-
             currentCoords.cStroke2 = ((int)Math.Round(e.NewValue)).ToString();
-
         }
 
         private void SliderStroke3_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-
             currentCoords.cStroke3 = ((int)Math.Round(e.NewValue)).ToString();
             // int i = (int)e.NewValue;
             // currentCoords.cStroke3 = i.ToString();
@@ -1060,37 +948,27 @@ namespace FlowerApp2.Views
 
         private void Slider_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-            currentCoords.preciseDegrees = e.NewValue.ToString();
-
-            //degreesFlag = true;
-            //  Entry1.Text = e.NewValue.ToString();
+            currentCoords.preciseDegrees = e.NewValue.ToString();\
         }
 
         private void SliderR2_ValueChanged(object sender, ValueChangedEventArgs e)
         {
             currentCoords.degrees = e.NewValue.ToString();
-
-            // degreesFlag = false;
-            //   Entry2.Text = e.NewValue.ToString();
         }
 
         private void Slider2_ValueChanged(object sender, ValueChangedEventArgs e)
         {
             currentCoords.angleLimit = e.NewValue.ToString();
-            // Entry4.Text = e.NewValue.ToString();
         }
 
         private void SliderScale_ValueChanged(object sender, ValueChangedEventArgs e)
         {
             currentCoords.fullScale = e.NewValue.ToString();
-            //Entry3.Text = e.NewValue.ToString();
-
         }
 
         private void Slider3_ValueChanged(object sender, ValueChangedEventArgs e)
         {
             currentCoords.radii = e.NewValue.ToString();
-
         }
 
         private void Slider4_ValueChanged(object sender, ValueChangedEventArgs e)
@@ -1110,7 +988,6 @@ namespace FlowerApp2.Views
             picker2Touchable = false;
             picker3Touchable = false;
             picker4Touchable = false;
-
         }
 
         private void Button_Clicked_2(object sender, EventArgs e)
